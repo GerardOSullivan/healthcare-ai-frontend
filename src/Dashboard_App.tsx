@@ -5,7 +5,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 ═══════════════════════════════════════════════════════════════════ */
 const API_BASE =
   (typeof window !== "undefined" && localStorage.getItem("api_base")) ||
-  "http://localhost:5000";
+  "https://healthcare-ai-backend-qcr3.onrender.com";
 
 async function api<T = unknown>(path: string, opts: RequestInit = {}): Promise<T & { __error?: string }> {
   const base = localStorage.getItem("api_base") || API_BASE;
@@ -898,7 +898,7 @@ interface ConnectionStatus {
 }
 
 function SettingsModal({ onClose }: SettingsModalProps) {
-  const [url, setUrl] = useState(localStorage.getItem("api_base") || "http://localhost:5000");
+  const [url, setUrl] = useState(localStorage.getItem("api_base") || "https://healthcare-ai-backend-qcr3.onrender.com");
   const [status, setStatus] = useState<ConnectionStatus | null>(null);
   const [testing, setTesting] = useState(false);
 
